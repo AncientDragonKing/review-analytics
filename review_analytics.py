@@ -24,4 +24,4 @@ print("平均每筆留言有", length/len(data), "字")
 # print(data[0])
 #List comprehention 清單快寫法(自取): 變數 = [{運算}for {變數} in {清單} {篩選條件}]
 good = [d for d in data if 'good' in d ]
-print(len(good))
+print("一共有", len(good), "筆留言有提到good")
