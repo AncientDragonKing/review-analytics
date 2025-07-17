@@ -2,7 +2,10 @@
 # calc = calculate 計算
 # avg = 平均長度
 # calc avg length of reviews
+# 匯入函示庫
+import time
 # 讀取
+
 data = []
 count = 0
 length = 0
@@ -13,7 +16,9 @@ with open('reviews.txt', 'r') as f:
 		count += 1
 		if count % 1000 == 0:
 			print(len(data))
+
 print('檔案讀取玩了，總共有', len(data), '筆留言')
+
 print("平均每筆留言有", length/len(data), "字")
 # 篩選
 good = []
@@ -23,6 +28,7 @@ for g in data:
 print("一共有", len(good), "筆留言有提到good")
 # 新增單字進到字典裡
 wc = {}
+start_time = time.time()
 for d in data:
 	words = d.split(
 		)
@@ -35,9 +41,11 @@ for d in data:
 for word in wc:
 	if wc[word] > 1000000:
 		print(word, wc[word])
+end_time = time.time()
+print('總花費時間:', end_time - start_time, 'seconds')
 # 查詢功能
 while True:
-	word = input('請問你想要查什麼字')
+	word = input('請問你想要查什麼字:')
 	if word == 'q':
 		break
 	if word in wc:
